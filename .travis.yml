@@ -1,0 +1,9 @@
+sudo: required
+services:
+    - docker
+
+before_install:
+    - docker build -t mroncancio/ci_practice -f Dockerfile.dev .
+
+script:
+    - docker run mroncancio/ci_practice npm run test -- --coverage
